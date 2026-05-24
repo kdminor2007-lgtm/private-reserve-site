@@ -1,39 +1,327 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Private Reserve</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Reserve | Luxury Inspired Fragrance</title>
+
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       background: #000;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    header {
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      background: #050505;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
       color: #d4af37;
-      font-family: Georgia, serif;
+      font-size: 24px;
+      letter-spacing: 5px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle, rgba(212,175,55,0.18), transparent 35%),
+        #000;
     }
-    h1 {
-      font-size: 56px;
-      letter-spacing: 8px;
+
+    .hero h1 {
+      font-size: 68px;
+      color: #d4af37;
+      letter-spacing: 10px;
+      margin-bottom: 20px;
     }
-    p {
-      color: white;
+
+    .hero p {
       font-size: 20px;
+      color: #ddd;
+      margin-bottom: 12px;
     }
+
     .button {
-      margin-top: 30px;
       display: inline-block;
-      padding: 15px 30px;
+      margin-top: 30px;
+      padding: 15px 35px;
       border: 1px solid #d4af37;
       color: #d4af37;
       text-decoration: none;
       letter-spacing: 3px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #d4af37;
+      font-size: 38px;
+      letter-spacing: 5px;
+      margin-bottom: 45px;
+    }
+
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.8;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #080808;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 30px 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #d4af37;
+    }
+
+    .card h3 {
+      color: #d4af37;
+      font-size: 24px;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .collections {
+      background: #050505;
+    }
+
+    .contact {
+      text-align: center;
+      background: #050505;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .contact p {
+      color: #ddd;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      border-top: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        letter-spacing: 6px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <h1>PRIVATE RESERVE</h1>
-  <p>Luxury Inspired Fragrance</p>
-  <p>Extrait De Parfum</p>
-  <a class="button" href="#">SHOP COMING SOON</a>
+
+  <header>
+    <div class="logo">PRIVATE RESERVE</div>
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#collection">SCENTS</a>
+      <a href="#contact">ORDER</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>PRIVATE RESERVE</h1>
+      <p>Luxury Inspired Fragrance</p>
+      <p>Extrait De Parfum</p>
+      <a class="button" href="#collection">VIEW COLLECTION</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">THE BRAND</h2>
+    <div class="about">
+      <p>
+        Private Reserve is a luxury-inspired fragrance collection created for people who want to smell expensive without paying designer prices.
+        Each scent is hand blended, bottled, and presented with a clean black-and-gold luxury style.
+      </p>
+    </div>
+  </section>
+
+  <section id="collection" class="collections">
+    <h2 class="section-title">FEATURED SCENTS</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Downtown 8</h3>
+        <p>Sweet, fresh, smooth, and perfect for everyday wear.</p>
+        <span class="badge">BEST SELLER</span>
+      </div>
+
+      <div class="card">
+        <h3>Victory Noir</h3>
+        <p>Bold, masculine, fruity, smoky, and powerful.</p>
+        <span class="badge">PREMIUM</span>
+      </div>
+
+      <div class="card">
+        <h3>Pacific Veil</h3>
+        <p>Fresh, citrus, clean, and perfect for hot weather.</p>
+        <span class="badge">SUMMER</span>
+      </div>
+
+      <div class="card">
+        <h3>Velvet Oud</h3>
+        <p>Rich, dark, elegant, and made for night wear.</p>
+        <span class="badge">ELITE</span>
+      </div>
+
+      <div class="card">
+        <h3>Royal Spice</h3>
+        <p>Warm, sweet, spicy, and perfect for date night.</p>
+        <span class="badge">SIGNATURE</span>
+      </div>
+
+      <div class="card">
+        <h3>Angel Reserve</h3>
+        <p>Sweet, smooth, warm, and luxury-focused.</p>
+        <span class="badge">NIGHT</span>
+      </div>
+
+      <div class="card">
+        <h3>Glacier Mist</h3>
+        <p>Clean, icy, fresh, and easy to wear daily.</p>
+        <span class="badge">FRESH</span>
+      </div>
+
+      <div class="card">
+        <h3>Lucid Dreams</h3>
+        <p>Bright, fresh, smooth, and upscale.</p>
+        <span class="badge">DAILY</span>
+      </div>
+
+      <div class="card">
+        <h3>After Hours</h3>
+        <p>Sweet, warm, bold, and made for evenings.</p>
+        <span class="badge">DATE NIGHT</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">COLLECTION TYPES</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Fresh</h3>
+        <p>Pacific Veil, Glacier Mist, Deep Current, Coastal Dive, Blue Ascension.</p>
+      </div>
+
+      <div class="card">
+        <h3>Sweet</h3>
+        <p>Downtown 8, Village Nights, Royal Spice, Angel Reserve, After Hours.</p>
+      </div>
+
+      <div class="card">
+        <h3>Dark</h3>
+        <p>Velvet Oud, Desert Shadow, Amber Flame, Blonde Luxe, Victory Noir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">ORDER PRIVATE RESERVE</h2>
+    <p>DM to order, request samples, or ask for a fragrance recommendation.</p>
+    <p>Follow us on TikTok and Instagram.</p>
+
+    <a class="button" href="https://www.tiktok.com/@privatereserveparfum" target="_blank">
+      FOLLOW ON TIKTOK
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Private Reserve. Luxury inspired fragrance collection.
+  </footer>
+
 </body>
 </html>
