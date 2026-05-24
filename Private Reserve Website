@@ -1,0 +1,159 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ShoppingBag, Sparkles, Flame, Droplets, Moon, Sun, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+const fragrances = [
+  { name: "Downtown 8", inspired: "Bond No.9 Lafayette Street", type: "Sweet Fresh", collection: "Best Seller" },
+  { name: "Village Nights", inspired: "Bond No.9 Greenwich Village", type: "Sweet Fruity", collection: "Sweet" },
+  { name: "Blue Reserve", inspired: "Bleu De Chanel Parfum", type: "Fresh Masculine", collection: "Daily" },
+  { name: "Amber Flame", inspired: "PDM Althair", type: "Warm Amber", collection: "Night" },
+  { name: "Royal Spice", inspired: "PDM Layton", type: "Sweet Spicy", collection: "Premium" },
+  { name: "Blonde Luxe", inspired: "Clive Christian Blonde Amber", type: "Warm Luxury", collection: "Elite" },
+  { name: "Glacier Mist", inspired: "Creed Silver Mountain Water", type: "Clean Fresh", collection: "Summer" },
+  { name: "Victory Noir", inspired: "Creed Absolu Aventus", type: "Fruity Smoky", collection: "Best Seller" },
+  { name: "Modern Mist", inspired: "YSL Myslf", type: "Clean Soft", collection: "Daily" },
+  { name: "Fire Aura", inspired: "God of Fire", type: "Tropical Fruity", collection: "Premium" },
+  { name: "Velvet Oud", inspired: "MFK Oud Satin Mood", type: "Rich Oud", collection: "Elite" },
+  { name: "Liquid Gold", inspired: "MFK Gentle Fluidity Gold", type: "Smooth Musk", collection: "Elite" },
+  { name: "Symphony Nights", inspired: "Louis Vuitton Symphony", type: "Citrus Luxury", collection: "Summer" },
+  { name: "Desert Shadow", inspired: "LV Ombre Nomade", type: "Dark Oud", collection: "Elite" },
+  { name: "Ghost Desert", inspired: "Byredo Mojave Ghost", type: "Airy Woody", collection: "Daily" },
+  { name: "Pacific Veil", inspired: "Louis Vuitton Pacific Chill", type: "Fresh Citrus", collection: "Summer" },
+  { name: "Voltage", inspired: "Versace Eros Energy", type: "Fresh Energy", collection: "Sweet" },
+  { name: "Deep Current", inspired: "Acqua Di Gio Profondo", type: "Aquatic Fresh", collection: "Summer" },
+  { name: "Lucid Dreams", inspired: "Louis Vuitton Imagination", type: "Fresh Luxury", collection: "Best Seller" },
+  { name: "Coastal Dive", inspired: "Louis Vuitton Afternoon Swim", type: "Bright Citrus", collection: "Summer" },
+  { name: "Royal Crown", inspired: "Mind Games Queening", type: "Luxury Sweet", collection: "Elite" },
+  { name: "Midnight Skyline", inspired: "Louis Vuitton City of Stars", type: "Citrus Night", collection: "Night" },
+  { name: "Tribeca Nights", inspired: "Bond No.9 Tribeca", type: "Sweet Luxury", collection: "Premium" },
+  { name: "Angel Reserve", inspired: "Kilian Angel’s Share", type: "Warm Sweet", collection: "Night" },
+  { name: "Blue Ascension", inspired: "Roja Dove Elysium", type: "Fresh Blue", collection: "Summer" },
+  { name: "Portofino Coast", inspired: "Tom Ford Neroli Portofino", type: "Citrus Fresh", collection: "Summer" },
+  { name: "After Hours", inspired: "Stronger With You Absolutely", type: "Sweet Warm", collection: "Night" },
+  { name: "Frozen Summit", inspired: "Creed Himalaya", type: "Cool Fresh", collection: "Daily" },
+  { name: "Ivory Gentleman", inspired: "Prada L’Homme", type: "Clean Powdery", collection: "Daily" },
+];
+
+export default function PrivateReserveWebsite() {
+  const [filter, setFilter] = useState("All");
+  const categories = ["All", "Best Seller", "Summer", "Night", "Daily", "Premium", "Elite", "Sweet"];
+  const shown = filter === "All" ? fragrances : fragrances.filter((f) => f.collection === filter);
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <header className="sticky top-0 z-50 border-b border-yellow-700/30 bg-black/85 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-yellow-500 font-serif text-xl text-yellow-400">PR</div>
+            <div>
+              <p className="font-serif text-lg tracking-[0.22em] text-yellow-400">PRIVATE RESERVE</p>
+              <p className="text-xs tracking-[0.35em] text-zinc-400">EXTRAIT DE PARFUM</p>
+            </div>
+          </div>
+          <Button className="rounded-2xl bg-yellow-500 text-black hover:bg-yellow-400">
+            <ShoppingBag className="mr-2 h-4 w-4" /> Order Now
+          </Button>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden px-5 py-24 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(202,138,4,0.22),transparent_45%)]" />
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative mx-auto max-w-4xl">
+          <p className="mb-4 text-sm tracking-[0.45em] text-yellow-400">LUXURY INSPIRED FRAGRANCE</p>
+          <h1 className="font-serif text-5xl leading-tight md:text-7xl">Smell Expensive.</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-300">
+            Bold, smooth, and long-lasting fragrance blends with a clean black-and-gold luxury presentation.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button className="rounded-2xl bg-yellow-500 px-8 py-6 text-black hover:bg-yellow-400">Shop Collection</Button>
+            <Button variant="outline" className="rounded-2xl border-yellow-500/60 px-8 py-6 text-yellow-400 hover:bg-yellow-500/10">View Best Sellers</Button>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-5 px-5 py-10 md:grid-cols-3">
+        {[
+          { icon: Sparkles, title: "Premium Quality", text: "Smooth blends designed for strong first impressions." },
+          { icon: Flame, title: "Long Lasting", text: "Made for projection, confidence, and everyday wear." },
+          { icon: ShoppingBag, title: "Small Batch", text: "Hand poured with attention to detail and presentation." },
+        ].map((item) => (
+          <Card key={item.title} className="rounded-2xl border-yellow-700/30 bg-zinc-950/80 shadow-xl">
+            <CardContent className="p-6">
+              <item.icon className="mb-4 h-8 w-8 text-yellow-400" />
+              <h3 className="mb-2 font-serif text-xl text-white">{item.title}</h3>
+              <p className="text-sm text-zinc-400">{item.text}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm tracking-[0.35em] text-yellow-400">THE COLLECTION</p>
+            <h2 className="mt-2 font-serif text-4xl">Featured Scents</h2>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`rounded-full border px-4 py-2 text-sm transition ${filter === cat ? "border-yellow-400 bg-yellow-500 text-black" : "border-yellow-700/50 text-yellow-300 hover:bg-yellow-500/10"}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-3">
+          {shown.map((f) => (
+            <motion.div key={f.name} layout>
+              <Card className="rounded-2xl border-yellow-700/30 bg-gradient-to-b from-zinc-900 to-black shadow-xl">
+                <CardContent className="p-6">
+                  <div className="mb-5 flex h-56 items-center justify-center rounded-2xl border border-yellow-700/30 bg-black">
+                    <div className="h-40 w-28 rounded-xl border border-yellow-500/70 bg-zinc-950 p-3 text-center shadow-2xl shadow-yellow-900/10">
+                      <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full border border-yellow-500 text-xs text-yellow-400">PR</div>
+                      <p className="text-[9px] tracking-[0.25em] text-yellow-400">PRIVATE RESERVE</p>
+                      <p className="mt-5 font-serif text-lg leading-5 text-yellow-300">{f.name}</p>
+                      <p className="mt-6 text-[9px] tracking-[0.18em] text-yellow-400">EXTRAIT</p>
+                    </div>
+                  </div>
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <h3 className="font-serif text-2xl text-white">{f.name}</h3>
+                    <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs text-yellow-300">{f.collection}</span>
+                  </div>
+                  <p className="text-sm text-zinc-400">Inspired by {f.inspired}</p>
+                  <p className="mt-3 text-sm text-yellow-300">{f.type}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16">
+        <div className="grid gap-5 md:grid-cols-3">
+          <Card className="rounded-2xl border-yellow-700/30 bg-zinc-950"><CardContent className="p-6"><Sun className="mb-3 h-8 w-8 text-yellow-400" /><h3 className="font-serif text-2xl">Daytime Picks</h3><p className="mt-2 text-zinc-400">Pacific Veil, Glacier Mist, Coastal Dive, Blue Ascension</p></CardContent></Card>
+          <Card className="rounded-2xl border-yellow-700/30 bg-zinc-950"><CardContent className="p-6"><Moon className="mb-3 h-8 w-8 text-yellow-400" /><h3 className="font-serif text-2xl">Night Out Picks</h3><p className="mt-2 text-zinc-400">Velvet Oud, Royal Spice, Angel Reserve, After Hours</p></CardContent></Card>
+          <Card className="rounded-2xl border-yellow-700/30 bg-zinc-950"><CardContent className="p-6"><Droplets className="mb-3 h-8 w-8 text-yellow-400" /><h3 className="font-serif text-2xl">Clean Daily Picks</h3><p className="mt-2 text-zinc-400">Modern Mist, Ivory Gentleman, Ghost Desert, Blue Reserve</p></CardContent></Card>
+        </div>
+      </section>
+
+      <section className="border-y border-yellow-700/30 bg-zinc-950 px-5 py-16 text-center">
+        <h2 className="font-serif text-4xl">Ready to smell expensive?</h2>
+        <p className="mx-auto mt-4 max-w-xl text-zinc-400">DM to order, request samples, or ask for a scent recommendation.</p>
+        <div className="mt-6 flex justify-center gap-3">
+          <Button className="rounded-2xl bg-yellow-500 text-black hover:bg-yellow-400"><Instagram className="mr-2 h-4 w-4" /> Follow on TikTok / IG</Button>
+        </div>
+      </section>
+
+      <footer className="px-5 py-8 text-center text-sm text-zinc-500">
+        <p>© 2026 Private Reserve. Inspired luxury fragrance collection.</p>
+      </footer>
+    </div>
+  );
+}
+
